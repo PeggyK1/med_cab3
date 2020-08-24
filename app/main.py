@@ -5,8 +5,9 @@ import uvicorn
 from app.api import predict, viz
 
 app = FastAPI(
-    title='DS API',
-    description='Lorem ipsum',
+    title='Med Cabinet 3 DS API',
+    description="""Reccomend strain, dosing,
+     intake method, and intake schedule based on User input.""",
     version='0.1',
     docs_url='/',
 )
