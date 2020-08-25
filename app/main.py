@@ -6,8 +6,8 @@ from app.api import predict, viz
 
 app = FastAPI(
     title='Med Cabinet 3 DS API',
-    description="""Reccomend strain, dosing,
-     intake method, and intake schedule based on User input.""",
+    description="""Recommend  cannabis strain based on User input of
+     ailment, desired effect, desired flavor, and location.""",
     version='0.1',
     docs_url='/',
 )

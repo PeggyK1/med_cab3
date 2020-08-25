@@ -15,20 +15,16 @@ class Strain(BaseModel):
     ailment: str = Field(..., example='Depression')
     effect: str = Field(..., example='Happy')
     flavor: str = Field(..., example='Citrus')
+    location: str = Field(..., example='Los Angeles, CA')
 
     def to_df(self):
         """Convert pydantic object to pandas dataframe with 1 row."""
         return pd.DataFrame([dict(self)])
 
-    # @validator('x1')
-    # def x1_must_be_positive(cls, value):
-    #     """Validate that x1 is a positive number."""
-    #     assert value > 0, f'x1 == {value}, must be > 0'
-    #     return value
 
 
 @router.post('/predict')
-async def predict(item: Strain):
+async def predict(house: Strain):
     """
     Make random baseline predictions for classification problem 🔮
 
@@ -36,12 +32,13 @@ async def predict(item: Strain):
     - `ailment`: string
     - `effect`: string
     - `flavor`: string
+    - `location`: string
 
     ### Response
     - `prediction`: string
     """
 
-    X_new = item.to_df()
+    X_new = strain.to_df()
     log.info(X_new)
     y_pred = 'Indica'
     return {
