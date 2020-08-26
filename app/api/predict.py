@@ -24,7 +24,7 @@ class Strain(BaseModel):
 
 
 @router.post('/predict')
-async def predict(house: Strain):
+async def predict(strain: Strain):
     """
     Make random baseline predictions for classification problem 🔮
 
