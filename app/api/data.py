@@ -16,4 +16,4 @@ async def data():
 
     results = strain.to_json(orient="index")
 
-
+    return results
