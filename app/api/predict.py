@@ -1,5 +1,6 @@
 import logging
 import random
+import pandas as pd
 
 from fastapi import APIRouter
 import pandas as pd
@@ -8,6 +9,8 @@ from pydantic import BaseModel, Field, validator
 log = logging.getLogger(__name__)
 router = APIRouter()
 
+strain = pd.read_csv('data/strains.csv')
+strain_list = strain['name']
 
 class Strain(BaseModel):
     """Use this data model to parse the request body JSON."""
@@ -40,7 +43,7 @@ async def predict(strain: Strain):
 
     X_new = strain.to_df()
     log.info(X_new)
-    y_pred = 'Indica'
+    y_pred = random.choice(strain_list)
     return {
-        'prediction': y_pred,
+        'prediction': y_pred
     }
