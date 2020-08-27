@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-from app.api import predict, viz, data
+from app.api import predict, viz, data, effects, ailments, flavors
 
 app = FastAPI(
     title='Med Cabinet 3 DS API',
@@ -15,6 +15,9 @@ app = FastAPI(
 app.include_router(predict.router)
 app.include_router(viz.router)
 app.include_router(data.router)
+app.include_router(effects.router)
+app.include_router(ailments.router)
+app.include_router(flavors.router)
 
 app.add_middleware(
     CORSMiddleware,
