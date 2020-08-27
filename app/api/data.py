@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 REPO_FILEPATH = getenv('REPO_FILEPATH')
-strain = pd.read_csv(REPO_FILEPATH + '\data\strains.csv')
+strain = pd.read_csv('\data\strains.csv')
 results = strain.to_json(orient="index")
 
 @router.get('/data')
