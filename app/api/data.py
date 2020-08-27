@@ -1,5 +1,5 @@
 import logging
-from os import getenv
+from os import getenv, listdir
 import pandas as pd
 from fastapi import APIRouter
 
@@ -7,7 +7,7 @@ from fastapi import APIRouter
 log = logging.getLogger(__name__)
 router = APIRouter()
 
-
+print(listdir())
 REPO_FILEPATH = getenv('REPO_FILEPATH')
 strain = pd.read_csv('\data\strains.csv')
 results = strain.to_json(orient="index")
