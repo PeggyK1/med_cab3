@@ -12,6 +12,7 @@ router = APIRouter()
 strain = pd.read_csv('data/strains.csv')
 strain_list = strain['name']
 
+
 class Strain(BaseModel):
     """Use this data model to parse the request body JSON."""
 
@@ -23,7 +24,6 @@ class Strain(BaseModel):
     def to_df(self):
         """Convert pydantic object to pandas dataframe with 1 row."""
         return pd.DataFrame([dict(self)])
-
 
 
 @router.post('/predict')

@@ -12,6 +12,7 @@ print(listdir())
 REPO_FILEPATH = getenv('REPO_FILEPATH')
 strain = pd.read_csv('data/strains.csv')
 
+
 @router.get('/effects')
 async def effects():
     """
@@ -78,7 +79,7 @@ async def effects():
     for i in list(range(len(strain))):
         if 'Focused' in strain['effects'][i]:
             focused.append(strain['name'][i])
-    
+
     json_anxious = json.dumps(anxious)
     json_tingly = json.dumps(tingly)
     json_paranoid = json.dumps(paranoid)
@@ -95,4 +96,8 @@ async def effects():
     json_creative = json.dumps(creative)
     json_focused = json.dumps(focused)
 
-    return json_anxious, json_tingly, json_paranoid, json_horny, json_happy, json_energetic, json_talkative, json_relaxed, json_dry_mouth, json_hungry, json_euphoric, json_sleepy, json_uplifted, json_creative, json_focused
+    return 'Anxious', json_anxious, 'Tingly', json_tingly, 'Paranoid', json_paranoid,\
+        'Horny', json_horny, 'Happy', json_happy, 'Energetic', json_energetic,\
+        'Talkative', json_talkative, 'Relaxed', json_relaxed, 'Dry_Mouth', json_dry_mouth,\
+        'Hungry', json_hungry, 'Euphoric', json_euphoric, 'Sleepy', json_sleepy,\
+        'Uplifted', json_uplifted, 'Creative', json_creative, 'Focused', json_focused

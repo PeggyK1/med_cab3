@@ -12,6 +12,7 @@ print(listdir())
 REPO_FILEPATH = getenv('REPO_FILEPATH')
 strain = pd.read_csv('data/strains.csv')
 
+
 @router.get('/ailments')
 async def ailments():
     """
@@ -65,4 +66,7 @@ async def ailments():
     json_muscle_spasms = json.dumps(muscle_spasms)
     json_pain = json.dumps(pain)
 
-    return json_nausea, json_depression, json_lack_of_appetitie, json_inflammation, json_stress, json_insomnia, json_seizures, json_muscle_spasms, json_pain
+    return 'nausea', json_nausea, 'depression', json_depression,\
+      'loa', json_lack_of_appetitie, 'inflammation', json_inflammation,\
+      'stress', json_stress, 'insomnia', json_insomnia,'seizures', json_seizures,\
+      'muscle_spasm', json_muscle_spasms, 'pain', json_pain

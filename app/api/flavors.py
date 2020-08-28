@@ -12,6 +12,7 @@ print(listdir())
 REPO_FILEPATH = getenv('REPO_FILEPATH')
 strain = pd.read_csv('data/strains.csv')
 
+
 @router.get('/flavors')
 async def flavors():
     """
@@ -135,5 +136,11 @@ async def flavors():
     json_pepper = json.dumps(pepper)
     json_lavender = json.dumps(lavender)
 
-    return json_berry, json_apple, json_honey, json_mango, json_earthy, json_mint, json_bluberry, json_ammonia, json_coffee, json_vanilla, json_rose, json_pine, json_citrus, json_sweet, json_pineapple, json_skunk, json_orange, json_strawberry, json_lemon, json_grape, json_lime, json_pepper, json_lavender
-
+    return 'Berry', json_berry, 'Apple', json_apple, 'Honey', json_honey,\
+        'Mango', json_mango, 'Earthy', json_earthy, 'Mint', json_mint,\
+        'Blueberry', json_bluberry, 'Ammonia', json_ammonia, 'Coffee', json_coffee,\
+        'Vanilla', json_vanilla, 'Rose', json_rose, 'Pine', json_pine,\
+        'Citrus', json_citrus, 'Sweet', json_sweet, 'Pineapple', json_pineapple,\
+        'Skunk', json_skunk, 'Orange', json_orange, 'Strawberry', json_strawberry,\
+        'Lemon', json_lemon, 'Grape', json_grape, 'Lime', json_lime,\
+        'Pepper', json_pepper, 'Lavender', json_lavender
